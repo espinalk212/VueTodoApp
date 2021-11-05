@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Todo App</title>
+    <script defer src="https://unpkg.com/vue@next"></script>
+    <script defer src="app.js"></script>
+    <script>
+      if (
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme:dark)').matches
+      ) {
+        document.documentElement.classList.add('darkTheme');
+      } else {
+        document.documentElement.classList.add('lightTheme');
+      }
+    </script>
+    <link  rel="stylesheet" href="app.css">
+  </head>
+  <body >
+    <div id="app">
+      <h1 v-if="user">{{user}} Todos</h1>
+      <div v-bind:class="{ modal: isActiveModal }" >
+        <div v-bind:class="{modalcontent: isActiveModal}">Hey, welcome! It looks like we don't know your name.
+          Set a name so that we can give you a better experience.
+          <br>
+          <Label for="name">Name: </Label>
+          <input
+            type="text"
+            placeholder="Your Name Here"
+            ref="name"
+          >
+          <br>
+          <button v-on:click="setLocalStorage">Submit</button>
+        </div>
+      </div>
+      <h6>A simple yet effective Vue.js app that allows you track your tasks</h6>
+      <div>
+        <h2>
+          {{ todos.length === 0 ? "You have no todos, let's start adding some" : "Todo List"
+          }}
+        </h2>
+        <ul v-if="todos.length > 0">
+          <li v-for="(todo, index) in todos" v-bind:key="index">
+            <div class="task" >Task: {{ todo.task }} Due Date: {{todo.date}}</div>
+            <div class="completedContainer">
+              <label for="yes">
+              <input
+                class="markCompleted"
+                type="button"
+                value="Mark as Completed"
+                v-on:click="markCompleted(todo.id)"
+                v-if="todo.completed === false"
+              />
+              </label>
+            </div>
+            <div class="completed" v-if="todo.completed === true"> ✅ </div>
+            <label for="deleteTask">
+              <input
+                class="markDeleted"
+                type="button"
+                value="Delete Task"
+                v-on:click="deleteTask(todo.id)"
+              />
+              </label>
+          </li>
+        </ul>
+      </div>
+      <form v-on:submit.prevent>
+        <label for="todoInput">
+          <input
+            class="todoInput"
+            name="todoInput"
+            type="text"
+            placeholder="Add a todo"
+            ref="todoInput"
+            v-on:input="update"
+          />
+        <p>To be completed by:</p>
+        </label>
+        <label for="todoDueDate">
+          <input
+            class="todoDueDate"
+            name="todoDueDate"
+            type="datetime-local"
+            ref="todoDueDate"
+            v-on:input="update"
+          />
+
+        </label>
+        <br>
+        <span>This is optional (if date not set will default to current date)</span>
+        <br />
+        <button v-on:click="addTodo">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

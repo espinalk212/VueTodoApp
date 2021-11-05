@@ -1,0 +1,143 @@
+.lightTheme {
+  /* --primary-color: white; */
+  /* --secondary-color: #42b983; */
+  --primary-color: #42b983;
+  --secondary-color: white;
+  --tertiary-color: #304455;
+}
+
+.darkTheme {
+  --primary-color: #304455;
+  /* --secondary-color: white;
+  --tertiary-color: #42b983; */
+  --secondary-color: #42b983;
+  --tertiary-color: white;
+
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+button {
+  color: var(--primary-color);
+  border-radius: 4px;
+  border: 2px solid var(--tertiary-color);
+  background-color: var(--secondary-color);
+}
+
+* {
+  text-align: center;
+
+}
+
+form {
+  border: 4px solid var(--secondary-color);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+ul {
+  border: 2px solid var(--secondary-color);
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  color: var(--primary-color);
+  list-style-position: inside
+}
+
+li {
+  display: flex;
+  border-bottom: 2px solid var(--tertiary-color);
+  padding: 5px;
+  justify-content: space-evenly;
+  align-items:center;
+
+}
+
+.markCompleted {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  border-radius: 4px;
+  border: 2px solid var(--tertiary-color);
+
+}
+
+.todoInput {
+  border-radius: 4px;
+  border: 2px solid var(--tertiary-color);
+  margin: 4px;
+  height: 3vh;
+  width: 80%;
+}
+
+.markDeleted {
+  background-color: var(--secondary-color);
+  color: red;
+  border-radius: 4px;
+  border: 2px solid var(--tertiary-color);
+
+}
+
+h1 {
+  border: 4px solid var(--secondary-color);
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
+}
+
+/* The Modal (background) */
+.modal {
+  /*display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,.8); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modalcontent {
+  background-color: var(--primary-color);
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+/* .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+} */
+
+
+/* .task {
+  display: grid;
+  align-self: flex-start;
+}
+
+.completedContainer {
+  align-self: center;
+
+}
+
+.completed {
+  align-self: center;
+
+} */
+
+
