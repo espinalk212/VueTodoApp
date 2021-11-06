@@ -21,16 +21,23 @@
   </head>
   <body >
     <div id="app">
-      <h1 v-if="user">{{user}} Todos</h1>
-      <div v-bind:class="{ modal: isActiveModal }" >
-        <div v-bind:class="{modalcontent: isActiveModal}">Hey, welcome! It looks like we don't know your name.
-          Set a name so that we can give you a better experience.
-          <br>
+      <h1 v-if="user">{{user}}'s Todos</h1>
+      <h1 v-else>My Todos</h1>
+      <div v-if="modal" class="modal" >
+        <div class="modalcontent">
+          <button v-on:click="closeConsent" class="close">Close</button>
+          <span>Hi, welcome! It looks like we don't know your name.
+          Set a name so that we can give you a better experience.</span>
+          <span>This app uses localStorage to provide you with a reliable
+            way to store your name and tasks</span>
+          <p><em><strong>By entering your name and pressing submit you are giving consent
+            (if you do not wish to do so just use the close button in the corner)</strong></em></p>
           <Label for="name">Name: </Label>
           <input
             type="text"
             placeholder="Your Name Here"
             ref="name"
+            v-model="user"
           >
           <br>
           <button v-on:click="setLocalStorage">Submit</button>
@@ -44,7 +51,10 @@
         </h2>
         <ul v-if="todos.length > 0">
           <li v-for="(todo, index) in todos" v-bind:key="index">
-            <div class="task" >Task: {{ todo.task }} Due Date: {{todo.date}}</div>
+            <div class="task">
+              <p>Task: {{ todo.task }}</p>
+              <p>{{todo.completed ? 'Completion Date: ' : 'Due Date: '}} {{todo.date}}</p>
+            </div>
             <div class="completedContainer">
               <label for="yes">
               <input
@@ -91,10 +101,14 @@
 
         </label>
         <br>
-        <span>This is optional (if date not set will default to current date)</span>
+        <p>This is optional (if date not set will default to current date)</p>
         <br />
         <button v-on:click="addTodo">Submit</button>
       </form>
+      <br>
+      <footer>
+        <button v-on:click="clearApp">Clear my data</button>
+      </footer>
     </div>
   </body>
 </html>

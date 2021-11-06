@@ -105,24 +105,25 @@ h1 {
   background-color: var(--primary-color);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border-radius: 4px;
+  border: 2px solid var(--tertiary-color);
+  width: 50%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
-/* .close {
-  color: #aaa;
+.close {
+  /* color: var(--secondary-color); */
   float: right;
-  font-size: 28px;
+  /* font-size: 10px; */
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: red;
   text-decoration: none;
   cursor: pointer;
-} */
+}
 
 
 /* .task {
