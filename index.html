@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Todo App</title>
+    <meta name="image" property="og:image" content="">
+    <meta name="description" property="og:description"
+      content="Simple yet effective Vue.js Tasks app that uses localStorage to persist data">
+    <meta name="author" content="Kevin Espinal">
+    <title>Vue Tasks App</title>
     <script defer src="https://unpkg.com/vue@next"></script>
     <script defer src="app.js"></script>
     <script>
@@ -64,9 +68,17 @@
                 v-on:click="markCompleted(todo.id)"
                 v-if="todo.completed === false"
               />
-              </label>
-            </div>
             <div class="completed" v-if="todo.completed === true"> ✅ </div>
+            <!-- <div class="editContainer">
+              <label for="edit">
+              <input
+                class="editTask"
+                type="button"
+                value="Edit Task"
+                v-on:click="editTask(todo.id)"
+              />
+            </label>
+            </div> -->
             <label for="deleteTask">
               <input
                 class="markDeleted"

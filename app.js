@@ -74,6 +74,13 @@ const app = {
       localStorage.setItem("todos", JSON.stringify(newTodos))
       return (this.todos = newTodos);
     },
+    // editTask: function (id) {
+    //   for(let i = 0; i < this.todos.length; i++) {
+    //     if(this.todos[i].id === id) {
+    //       this.$refs['todoInput'].value = this.todos[i].task;
+    //     }
+    //   }
+    // },
     setLocalStorage: function () {
       if(this.user === "") return;
       localStorage.setItem('name', this.$refs['name'].value);
@@ -86,6 +93,7 @@ const app = {
     },
     clearApp: function() {
       localStorage.clear();
+      this.todos = [];
       this.user = "";
       this.modal = true;
     },
@@ -98,7 +106,6 @@ const app = {
     },
     getData: function() {
       this.todos = JSON.parse(localStorage.getItem("todos") || "[]");
-      console.log(this.todos);
     }
   },
 };
